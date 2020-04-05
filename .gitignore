@@ -4,6 +4,9 @@ dist/
 samples/
 temp/
 
+# Meta Data
+tsdoc-metadata.json
+
 # Logs
 logs
 *.log
