@@ -1,0 +1,59 @@
+{
+  "name": "respiration",
+  "version": "0.0.0",
+  "description": "Mono-Repository Helper",
+  "main": "index.js",
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
+      "@babel/preset-typescript"
+    ]
+  },
+  "scripts": {
+    "build": "npm run transpile && npm run compile",
+    "clean": "npm run docs:clean && rimraf ./build ./dist",
+    "compile": "rollup -c rollup.config.js",
+    "docs:api:build": "api-documenter markdown -i ./docs/temp/api/ -o ./docs/api/",
+    "docs:api:clean": "rimraf ./docs/temp/api ./docs/api",
+    "docs:api:extract": "api-extractor run -c ./api-extractor.json",
+    "docs:build": "npm run docs:api:extract && npm run docs:api:build",
+    "docs:clean": "rimraf ./docs",
+    "test": "jest",
+    "transpile": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlboeDev/respiration.git"
+  },
+  "author": "Alboe Development",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/InteractiveTimmy/respiration/issues"
+  },
+  "homepage": "https://github.com/InteractiveTimmy/respiration#readme",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-typescript": "^7.9.0",
+    "@microsoft/api-documenter": "^7.7.17",
+    "@microsoft/api-extractor": "^7.7.12",
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "@typescript-eslint/parser": "^2.26.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-jsdoc": "^22.1.0",
+    "jest": "^25.2.7",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.3.3",
+    "typescript": "^3.8.3"
+  }
+}
